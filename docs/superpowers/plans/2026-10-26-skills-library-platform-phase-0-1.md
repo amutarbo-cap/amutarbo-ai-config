@@ -26,11 +26,11 @@
 
 Estas decisiones bloquean las tareas indicadas. Ninguna se resuelve en implementación: si no hay respuesta, la tarea se detiene en ese punto y se pregunta.
 
-- **D1 — Clasificación de `typescript-expert`, `mcp-builder`, `ui-ux-pro-max`.** Bloquea T1.1 para esas tres skills. `typescript-expert` además la referencian agentes (T1.2). Pendiente de respuesta.
-- **D2 — `skills/.example/`.** La spec la retira, pero CLAUDE.md dice "Usa `.example/` como plantilla para cualquier elemento nuevo". Bloquea T1.4. Opciones: (a) retirarla y actualizar CLAUDE.md; (b) mantenerla. Pendiente.
-- **D3 — Dónde van los metadatos de las skills existentes.** Ninguna de las 13 tiene `version`, y varias parecen de terceros (p. ej. `angular-developer` trae `license` y `metadata.author` de Google). Añadir campos al frontmatter modifica el texto original. Recomendación por defecto: fichero `skill.meta.yaml` junto a `SKILL.md` para las skills de terceros, sin tocar su `SKILL.md`. Bloquea T0.3 (lectura de metadatos) y T1.1. Pendiente de confirmar.
-- **D4 — Coexistencia de catálogos.** La spec pide `CATALOG.json` v2 y v1 en paralelo, que no caben en el mismo nombre. Recomendación por defecto: v1 sigue en `CATALOG.json` y el v2 se escribe en `CATALOG.v2.json`; al cerrar la migración de consumidores se intercambian. Bloquea T0.4. Pendiente.
-- **D5 — README por skill.** CLAUDE.md lo exige y la spec no lo menciona. Recomendación por defecto: el validador avisa (como hace hoy `validate-yamls.js` para agentes) y no falla. Bloquea T0.3. Pendiente.
+- **D1 — Resuelta: `common`.** `typescript-expert`, `mcp-builder` y `ui-ux-pro-max` pasan a `skills/common/`. Agentes que referencian `typescript-expert` se resuelven con alias (T1.2).
+- **D2 — `skills/.example/`.** La spec la retira, pero CLAUDE.md dice "Usa `.example/` como plantilla para cualquier elemento nuevo". Bloquea T1.4. **Resuelta: retirar.** Se elimina `skills/.example/` y CLAUDE.md deja de exigir `.example/`. La generación de skills usará el skill-generator de Claude (fase 3), no una plantilla en el repo.
+- **D3 — Resuelta: metadatos en el frontmatter de `SKILL.md`.** Se actualizan las skills existentes. Ninguna de las 13 tiene `version`, y varias son de terceros (p. ej. `angular-developer` trae `license` y `metadata.author` de Google), así que sus líneas de frontmatter cambian. El cuerpo de cada skill no se toca.
+- **D4 — Coexistencia de catálogos.** La spec pide `CATALOG.json` v2 y v1 en paralelo, que no caben en el mismo nombre. Recomendación por defecto: v1 sigue en `CATALOG.json` y el v2 se escribe en `CATALOG.v2.json`; al cerrar la migración de consumidores se intercambian. **Resuelta: coexisten temporalmente.**
+- **D5 — README por skill.** CLAUDE.md lo exige y la spec no lo menciona. **Resuelta: README obligatorio por skill.** El validador falla si falta.
 
 ## Review Focus
 
@@ -173,7 +173,7 @@ git commit -m "feat(taxonomy): add controlled vocabulary for skills"
 - Consumes: `loadTaxonomy` (T0.2)
 - Produces:
   - `parseFrontmatter(content: string) -> { data: object, body: string }`. Acepta CRLF. Si no hay bloque, devuelve `data: {}`. Si el YAML es inválido, lanza `Error` con la ruta.
-  - `validateSkill({ dir, frontmatter, meta, taxonomy }) -> string[]`. Devuelve errores vacíos si la skill es válida. `meta` es el contenido de `skill.meta.yaml` si existe (D3).
+  - `validateSkill({ dir, frontmatter, taxonomy }) -> string[]`. Devuelve errores vacíos si la skill es válida.
   - `run.js`: recorre `skills/`, imprime errores y avisos, sale con código 1 si hay errores.
 
 **Reglas de `validateSkill`** (solo para skills con `kind` declarado; las que no lo tienen se reportan como aviso "pendiente de migración" hasta T1.1, tras lo cual pasan a error):
@@ -185,8 +185,8 @@ git commit -m "feat(taxonomy): add controlled vocabulary for skills"
 5. `category` ∈ `taxonomy.categories`. `technology` ∈ `taxonomy.technologies`.
 6. Cada tag ∈ `taxonomy.tags`.
 7. Cada entrada de `applies_to` es `*`, `domain:<d>` con `d` en `taxonomy.domains`, o un ID de tecnología.
-8. `version` cumple semver `x.y.z` (en `meta` o en frontmatter según D3).
-9. Si no hay `README.md` en la carpeta: aviso (D5), no error.
+8. `version` cumple semver `x.y.z` en el frontmatter.
+9. Si no hay `README.md` en la carpeta: error (D5).
 
 - [ ] **Step 1: Tests de `parseFrontmatter`**
 
@@ -353,7 +353,7 @@ git commit -m "ci: run tests, validator and catalog v2 generation"
 
 **Files:**
 - Move (con `git mv`): las skills según la tabla de abajo
-- Create: `skills/<ruta-nueva>/skill.meta.yaml` por cada skill (D3)
+- Modify: `SKILL.md` de cada skill migrada (frontmatter, D3)
 - Delete: `skills/openspec-apply-change/`, `skills/openspec-archive-change/`, `skills/openspec-explore/`, `skills/openspec-propose/`, `skills/qa-test-planner/`
 
 **Interfaces:**
@@ -369,13 +369,13 @@ Tabla de migración (ID = nombre de carpeta nueva):
 | `vue-best-practices` | `skills/tech/vue/vue-best-practices` | tech | vue |
 | `nodejs-best-practices` | `skills/tech/nodejs/nodejs-best-practices` | tech | nodejs |
 | `vercel-react-best-practices` | `skills/tech/react/react-best-practices` | tech | react (rename, alias en T1.2) |
-| `typescript-expert` | **pendiente D1** | — | — |
-| `mcp-builder` | **pendiente D1** | — | — |
-| `ui-ux-pro-max` | **pendiente D1** | — | — |
+| `typescript-expert` | `skills/common/common-typescript-expert` | common | — |
+| `mcp-builder` | `skills/common/common-mcp-builder` | common | — |
+| `ui-ux-pro-max` | `skills/common/common-ui-ux-pro-max` | common | — |
 
 Notas:
 - Para `angular-developer`, `vue-best-practices`, `nodejs-best-practices` y `react-best-practices` el ID empieza por el slug de la tecnología. Así cumplen la regla 3 de T0.3 sin renombrar `name` en `SKILL.md`, porque ese nombre es el que Claude usa para invocarlas. Solo `vercel-react-best-practices` cambia de nombre, y eso requiere alias.
-- `skill.meta.yaml` (D3) contiene: `id`, `version: 1.0.0`, `kind`, `category`, `technology` (si aplica), `applies_to`, `tags`, `status: stable`, `maintainer: "@amutarbo"`, `sources` (URL del origen si se conoce; si no, omitir el campo).
+- Los metadatos (D3) van al frontmatter de `SKILL.md`: `id`, `version: 1.0.0`, `kind`, `category`, `technology` (si aplica), `applies_to`, `tags`, `status: stable`, `maintainer: "@amutarbo"`, `sources` (URL del origen si se conoce; si no, omitir el campo). El cuerpo no se modifica.
 - `common-accessibility` mantiene `name: accessibility-a11y` en `SKILL.md` (es el nombre que referencian agentes). Hasta T1.2 el alias lo cubre.
 
 - [ ] **Step 1: Test de no duplicación**
@@ -393,14 +393,14 @@ Run: `git rm -r skills/openspec-apply-change skills/openspec-archive-change skil
 
 Antes de borrar, comprobar que ningún agente las referencia: `grep -rn "openspec\|qa-test-planner" agents/` debe no devolver nada (ya verificado al explorar; repetir para confirmar).
 
-- [ ] **Step 4: Mover las cinco skills no bloqueadas**
+- [ ] **Step 4: Mover las ocho skills**
 
-Con `git mv` para cada fila de la tabla sin "pendiente". Crear `skill.meta.yaml` tras mover. Para `vercel-react-best-practices`, el `name` de `SKILL.md` no se cambia (ver T1.2).
+Con `git mv` para cada fila de la tabla. Añadir el frontmatter (D3) tras mover. Para `vercel-react-best-practices`, el `name` de `SKILL.md` no se cambia (ver T1.2).
 
 - [ ] **Step 5: Verificar**
 
 Run: `npm test && node tools/validate/run.js && node tools/catalog/build-v2.js`
-Expected: tests pasan; validador sin errores para las cinco migradas; las tres pendientes (D1) siguen en `skills/` y aparecen como aviso "pendiente de migración".
+Expected: tests pasan; validador sin errores para las ocho skills migradas.
 
 - [ ] **Step 6: Commit**
 
@@ -424,6 +424,9 @@ git commit -m "refactor(skills): migrate skills to common/tech layout and remove
 Alias obligatorios:
 - `accessibility-a11y` → `common-accessibility`
 - `vercel-react-best-practices` → `react-best-practices`
+- `typescript-expert` → `common-typescript-expert`
+- `mcp-builder` → `common-mcp-builder`
+- `ui-ux-pro-max` → `common-ui-ux-pro-max`
 
 - [ ] **Step 1: Tests**
 
@@ -441,12 +444,12 @@ Expected: FAIL.
 
 - [ ] **Step 4: Actualizar agentes**
 
-Cambiar `agents/accesibilidad/accesibilidad.yaml` a `skills: [common-accessibility]`. Verificar que los demás agentes ya no referencian nombres antiguos; `typescript-expert` (agentes con `typescript-expert` en su lista) queda sin tocar hasta resolver D1.
+Cambiar `agents/accesibilidad/accesibilidad.yaml` a `skills: [common-accessibility]`. Verificar que los demás agentes ya no referencian nombres antiguos. Los agentes que referencian `typescript-expert` se dejan con ese nombre: el alias lo resuelve.
 
 - [ ] **Step 5: Ejecutar y ver que pasan**
 
 Run: `npm test && node tools/validate/run.js`
-Expected: pasan. Los agentes que referencian `typescript-expert` no fallan por esto mientras D1 esté pendiente, porque `typescript-expert` sigue existiendo en `skills/`. Si se elimina tras D1, el test marca el error y se corrige en ese momento.
+Expected: pasan. Ningún agente referencia un nombre sin resolver.
 
 - [ ] **Step 6: Commit**
 
@@ -493,7 +496,7 @@ git commit -m "fix(sync): point default paths to existing repo layout"
 - Consumes: decisión D2
 - Produces: un único punto de plantilla
 
-Esta tarea no se ejecuta hasta resolver D2. Si D2 = mantener, se omite y se deja constancia en el informe final.
+D2 resuelta: se ejecuta. CLAUDE.md debe quedar sin la regla de `.example/` al final de esta tarea.
 
 - [ ] **Step 1: Ejecutar solo tras D2 = retirar**
 
@@ -573,7 +576,7 @@ git commit -m "docs: update acceptance criteria to actual skill count"
 
 Plan completo, guardado en `docs/superpowers/plans/2026-10-26-skills-library-platform-phase-0-1.md`. Por favor revísalo. Antes de implementar necesito:
 
-1. **Decisiones D1 a D5.** Las cinco tienen recomendación por defecto. D1 es la única que no tiene valor por defecto: sin ella, `typescript-expert`, `mcp-builder` y `ui-ux-pro-max` quedan sin migrar.
+1. **Decisiones D1 a D5:** resueltas (ver sección Decisiones pendientes).
 2. **Método de ejecución.** Recomiendo **Native** (`superpowers:executing-plans`): las tareas dependen mucho unas de otras (T0.3 → T0.4 → T1.1), son 14 tareas y un error en las interfaces de la fase 0 se propagaría. Con una revisión final de la rama, el coste es menor que una revisión por tarea.
 
 ¿El plan recoge lo que quieres, y qué método prefieres?
