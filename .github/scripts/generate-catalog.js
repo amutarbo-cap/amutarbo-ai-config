@@ -2,19 +2,10 @@ const fs = require('fs');
 const path = require('path');
 
 const yaml = require('js-yaml');
+const { parseFrontmatter } = require('../../tools/lib/frontmatter');
 
 const CATEGORIES = ['agents', 'skills', 'mcps', 'resources'];
 const ROOT = path.join(__dirname, '..', '..');
-
-function parseFrontmatter(content) {
-  const normalized = content.replace(/\r\n/g, '\n');
-  const match = normalized.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
-  if (!match) return { data: {}, body: content };
-  return {
-    data: yaml.load(match[1]) || {},
-    body: match[2],
-  };
-}
 
 function readSkillFiles() {
   const categoryPath = path.join(ROOT, 'skills');
