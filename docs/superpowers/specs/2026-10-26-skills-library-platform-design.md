@@ -1,6 +1,6 @@
 # Biblioteca corporativa de skills por tecnología — Diseño
 
-- **Estado:** borrador para revisión
+- **Estado:** aprobada (pendiente de plan de implementación)
 - **Fecha:** 2026-10-26
 - **Repositorio:** `capgemini-ai-config`
 - **Tipo:** arquitectónico
@@ -132,7 +132,7 @@ Solo capacidades del stack, sin repetir las comunes.
 - Prefijo: `common`, el slug de la tecnología (`angular`) o `mig-<from>-to-<to>`.
 - El ID es inmutable. Un renombrado deja la skill antigua en `deprecated` con `replaced_by`.
 
-**Migración de las 13 skills actuales:** `accessibility-a11y` pasa a `common-accessibility`; `angular-developer` a `skills/tech/angular/`; `vue-best-practices` a `skills/tech/vue/`; `nodejs-best-practices` a `skills/tech/nodejs/`; `vercel-react-best-practices` a `skills/tech/react/`; y así con el resto. `openspec-*` y `qa-test-planner` requieren decisión de clasificación (ver §12). `skills/.example/` se sustituye por la plantilla del scaffold.
+**Migración de las 13 skills actuales:** `accessibility-a11y` pasa a `common-accessibility`; `angular-developer` a `skills/tech/angular/`; `vue-best-practices` a `skills/tech/vue/`; `nodejs-best-practices` a `skills/tech/nodejs/`; `vercel-react-best-practices` a `skills/tech/react/`; y así con el resto. `openspec-*` y `qa-test-planner` se eliminan de la biblioteca (ver §12). `skills/.example/` se sustituye por la plantilla del scaffold.
 
 ## 7. Metadatos y estructura del `CATALOG.json`
 
@@ -366,11 +366,11 @@ Cambios necesarios en el repo actual:
 2. Usar Angular + Pega como piloto de extremo a extremo: cubre migración y low-code, y ejercita todo el modelo.
 3. No construir la plataforma web hasta que `bundler` funcione por CLI y por Action.
 
-## 12. Preguntas abiertas
+## 12. Decisiones sobre preguntas abiertas
 
-- **Clasificación de `openspec-*` y `qa-test-planner`:** ¿son `common` (metodología transversal) o de una tecnología concreta?
-- **Consumidores:** confirmar si `dcx-sdd-kit` e `IA-Portal` aceptan el layout plano del zip sin cambios.
-- **Dueños de equipo:** confirmar los `owners_team` reales para `CODEOWNERS`.
+- **`openspec-*` y `qa-test-planner`:** se eliminan de la biblioteca. No se migran a `common` ni a ninguna tecnología. La retirada efectiva (borrado de carpetas) se hace en la fase 1, dentro del plan aprobado. Quedan en el historial de git.
+- **Consumidores:** `dcx-sdd-kit` e `IA-Portal` requieren cambios para consumir el nuevo modelo. Ver §14. Pendiente de verificar en esos repos, que no están disponibles en el entorno de diseño.
+- **Owners:** el owner inicial de todos los activos es el mantenedor del repo, `@amutarbo`. Los `owners_team` y la asignación por carpeta en `CODEOWNERS` quedan pendientes de definir con los equipos reales.
 
 ## 13. Criterios de aceptación de la fase 0–1
 
@@ -378,3 +378,50 @@ Cambios necesarios en el repo actual:
 - `validate-yamls` / validador de frontmatter rechaza tags fuera de `taxonomy/`, IDs duplicados y referencias rotas.
 - Ningún archivo de skill aparece duplicado en dos rutas.
 - El catálogo v1 sigue generándose durante la migración.
+
+## 14. Cambios requeridos en los consumidores
+
+Lo que hay que cambiar en cada consumidor para usar el modelo nuevo. Los puntos marcados con (verificar) dependen de cómo consume hoy cada repo y se confirman al abrir sus pipelines.
+
+### Repo `capgemini-ai-config` (fase 1)
+
+- `generate-catalog.js`: recorrer recursivamente `skills/` y emitir `schemaVersion: 2.0.0`. Hoy lee solo un nivel.
+- Mantener el catálogo v1 durante la migración, para que los consumidores actuales no se rompan.
+- Corregir el valor por defecto de `paths` en `.github/actions/sync-ai-config/action.yml`: hoy apunta a `catalog/agents,catalog/skills,catalog/sdd,catalog/mcps,manifest.yaml`, rutas que no existen en el repo.
+- Eliminar `skills/.example/` (plantilla obsoleta) y sustituirla por la del scaffold.
+
+### Action `sync-ai-config` (todos los consumidores)
+
+- Nuevo input `technologies` (lista) y `scenario` opcional, con `from` y `to` si el escenario lo exige.
+- La action resuelve contra `CATALOG.json` (o descarga el zip del perfil de la release) en lugar de copiar carpetas enteras.
+- El destino por defecto `.ai-config` cambia al layout que espere cada consumidor (verificar).
+- Opción de fijar la versión del catálogo por tag, para reproducibilidad.
+
+### `dcx-sdd-kit` (verificar)
+
+- Dejar de leer skills por nombre fijo. Pasar a consumir el `bundle-manifest.json` del zip.
+- Ajustar la lectura de rutas: el zip usa layout plano `.claude/skills/<id>/SKILL.md`.
+- Leer `schemaVersion` y rechazar catálogos con major mayor que el soportado.
+- Actualizar la referencia a `skills` dentro de sus flujos SDD al nuevo `id` (IDs con prefijo `common-`, `<tech>-`, `mig-`).
+
+### `IA-Portal` (verificar)
+
+- Lo mismo que `dcx-sdd-kit` en lo relativo a catálogo, bundle y `schemaVersion`.
+- Si muestra o filtra skills, usar `index.byTechnology`, `index.byDomain` e `index.byTag` del catálogo en lugar de listas planas.
+- Si referencia skills por nombre antiguo, migrar a los IDs nuevos según el mapeo de la §6 (p. ej. `accessibility-a11y` → `common-accessibility`).
+
+### Mapeo de nombres antiguos a IDs nuevos
+
+| Nombre actual | ID nuevo |
+|---|---|
+| `accessibility-a11y` | `common-accessibility` |
+| `angular-developer` | `angular-*` (tech/angular) |
+| `vue-best-practices` | `vue-*` (tech/vue) |
+| `nodejs-best-practices` | `nodejs-*` (tech/nodejs) |
+| `vercel-react-best-practices` | `react-*` (tech/react) |
+| `typescript-expert` | por clasificar en fase 1 |
+| `mcp-builder` | por clasificar en fase 1 |
+| `ui-ux-pro-max` | por clasificar en fase 1 |
+| `openspec-*`, `qa-test-planner` | eliminadas |
+
+Un alias de compatibilidad en el catálogo v2 (`aliases: { "accessibility-a11y": "common-accessibility" }`) permite que los consumidores migren sin romperse.
