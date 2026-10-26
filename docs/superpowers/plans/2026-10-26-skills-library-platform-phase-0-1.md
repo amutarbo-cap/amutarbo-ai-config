@@ -74,7 +74,7 @@ Cada línea se verifica en la tarea que posee el código (T0.3 o T0.4), con su t
 
 ## Fase 0 — Cimientos
 
-### Task T0.1: Harness de tests
+### Task 1: Harness de tests (T0.1)
 
 **Files:**
 - Modify: `package.json`
@@ -111,7 +111,7 @@ git add package.json tests/smoke.test.js
 git commit -m "test: add node:test harness"
 ```
 
-### Task T0.2: Taxonomía (vocabulario controlado)
+### Task 2: Taxonomía (vocabulario controlado) (T0.2)
 
 **Files:**
 - Create: `taxonomy/domains.yaml`, `taxonomy/technologies.yaml`, `taxonomy/categories.yaml`, `taxonomy/tags.yaml`
@@ -162,7 +162,7 @@ git add taxonomy tools/lib/taxonomy.js tests/taxonomy.test.js
 git commit -m "feat(taxonomy): add controlled vocabulary for skills"
 ```
 
-### Task T0.3: Frontmatter compartido y validador de skills
+### Task 3: Frontmatter compartido y validador de skills (T0.3)
 
 **Files:**
 - Create: `tools/lib/frontmatter.js`, `tools/validate/skill.js`, `tools/validate/run.js`
@@ -221,7 +221,7 @@ git add tools/lib/frontmatter.js tools/validate tests .github/scripts/generate-c
 git commit -m "feat(validate): add skill frontmatter validator"
 ```
 
-### Task T0.4: Generador de catálogo v2 recursivo
+### Task 4: Generador de catálogo v2 recursivo (T0.4)
 
 **Files:**
 - Create: `tools/catalog/build-v2.js`
@@ -278,7 +278,7 @@ git commit -m "feat(catalog): add recursive catalog v2 builder"
 
 Nota: `CATALOG.v2.json` no se commitea a mano. Lo genera la CI en T0.6.
 
-### Task T0.5: Gobernanza (CODEOWNERS y plantilla de PR)
+### Task 5: Gobernanza (CODEOWNERS y plantilla de PR) (T0.5)
 
 **Files:**
 - Create: `.github/CODEOWNERS`, `.github/PULL_REQUEST_TEMPLATE.md`
@@ -314,7 +314,7 @@ git add .github/CODEOWNERS .github/PULL_REQUEST_TEMPLATE.md
 git commit -m "chore(governance): add CODEOWNERS and PR template"
 ```
 
-### Task T0.6: CI de PR y de generación
+### Task 6: CI de PR y de generación (T0.6)
 
 **Files:**
 - Modify: `.github/workflows/validate-pr.yml`, `.github/workflows/generate-catalog.yml`
@@ -349,7 +349,7 @@ git commit -m "ci: run tests, validator and catalog v2 generation"
 
 ## Fase 1 — Migración del repo
 
-### Task T1.1: Mover las skills a `common/` y `tech/`
+### Task 7: Mover las skills a `common/` y `tech/` (T1.1)
 
 **Files:**
 - Move (con `git mv`): las skills según la tabla de abajo
@@ -409,7 +409,7 @@ git add -A skills tests/migration.test.js
 git commit -m "refactor(skills): migrate skills to common/tech layout and remove openspec and qa-test-planner"
 ```
 
-### Task T1.2: Alias y referencias de agentes
+### Task 8: Alias y referencias de agentes (T1.2)
 
 **Files:**
 - Modify: `agents/accesibilidad/accesibilidad.yaml` (línea `skills:`), `agents/*/*.yaml` si referencian skills migradas
@@ -458,7 +458,7 @@ git add taxonomy/aliases.yaml tools/catalog/build-v2.js tools/validate/reference
 git commit -m "feat(catalog): add aliases and validate agent skill references"
 ```
 
-### Task T1.3: Corregir valores por defecto de la action de sync
+### Task 9: Corregir valores por defecto de la action de sync (T1.3)
 
 **Files:**
 - Modify: `.github/actions/sync-ai-config/action.yml` (input `paths`)
@@ -486,7 +486,7 @@ git add .github/actions/sync-ai-config/action.yml
 git commit -m "fix(sync): point default paths to existing repo layout"
 ```
 
-### Task T1.4: Retirar `skills/.example/`
+### Task 10: Retirar `skills/.example/` (T1.4)
 
 **Files:**
 - Delete: `skills/.example/` (solo si D2 = retirar)
@@ -510,7 +510,7 @@ git add -A skills CLAUDE.md
 git commit -m "chore(skills): retire skills/.example in favor of scaffold templates"
 ```
 
-### Task T1.5: Criterios de aceptación de fases 0–1
+### Task 11: Criterios de aceptación de fases 0–1 (T1.5)
 
 **Files:**
 - Modify: `docs/superpowers/specs/2026-10-26-skills-library-platform-design.md` (§13: "13 skills" → número real tras T1.1)
