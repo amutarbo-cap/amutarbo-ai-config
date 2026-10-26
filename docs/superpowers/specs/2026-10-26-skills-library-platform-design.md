@@ -374,7 +374,7 @@ Cambios necesarios en el repo actual:
 
 ## 13. Criterios de aceptación de la fase 0–1
 
-- `generate-catalog.js` lista las 13 skills actuales con ID, `kind`, `path` y `checksum`.
+- `tools/catalog/build-v2.js` lista las 8 skills migradas con `id`, `kind`, `path` y `checksum`. `generate-catalog.js` (v1) sigue listando las 8 con su nombre histórico, para que los consumidores de v1 no pierdan skills.
 - `validate-yamls` / validador de frontmatter rechaza tags fuera de `taxonomy/`, IDs duplicados y referencias rotas.
 - Ningún archivo de skill aparece duplicado en dos rutas.
 - El catálogo v1 sigue generándose durante la migración.
