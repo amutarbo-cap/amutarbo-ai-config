@@ -18,7 +18,7 @@ Opera como **L3 del swarm SDD** — recibe el handoff estratégico del product-s
 
 Se instala automáticamente al ejecutar `/sdd-swarm` y seleccionar el nivel L3 — Architects > Backend Architect.
 
-Usa los skills `nodejs-best-practices`, `typescript-expert` y `openspec-propose`:
+Usa los skills `nodejs-best-practices` y `typescript-expert`:
 
 ```bash
 dcxsdd swarm
