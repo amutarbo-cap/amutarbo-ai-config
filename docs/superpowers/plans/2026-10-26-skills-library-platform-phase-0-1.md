@@ -548,7 +548,7 @@ git commit -m "docs: update acceptance criteria to actual skill count"
 - §3 estructura: T0.2 (taxonomy), T1.1 (common/tech), T0.3 (tools).
 - §4 taxonomía: T0.2 y reglas de T0.3.
 - §6 skills por tecnología y naming: T1.1 (tabla de migración), T1.2 (alias).
-- §7 frontmatter y CATALOG v2: T0.3 y T0.4. El frontmatter completo de la spec se aplica a las skills nuevas; las de terceros usan `skill.meta.yaml` (D3).
+- §7 frontmatter y CATALOG v2: T0.3 y T0.4. El frontmatter completo de la spec se aplica a todas las skills, también a las existentes (D3).
 - §8 gobernanza: T0.5 (CODEOWNERS y PR template). Bump de versión y similitud en CI quedan fuera de esta fase; ver Fuera de alcance.
 - §9 publicación: T0.6 (CI de PR y generación). Release y zips quedan fuera de esta fase.
 - §12 decisiones: aplicadas en T1.1 (eliminación) y en la spec ya commiteada.
@@ -564,7 +564,7 @@ git commit -m "docs: update acceptance criteria to actual skill count"
 
 **Consistencia de tipos:** `loadTaxonomy` (T0.2) se usa en T0.3 y T0.4 con la misma forma. `buildCatalogV2` (T0.4) produce `aliases` que consume `checkAgentSkillRefs` (T1.2). `parseFrontmatter` (T0.3) lo usa T0.4.
 
-**Decisiones pendientes:** D1 bloquea los tres pasos de T1.1 y el ID de `typescript-expert` en T1.2. D2 bloquea T1.4. D3, D4 y D5 están marcadas en sus tareas; si no se confirman, las tareas usan el valor por defecto indicado en la sección de decisiones.
+**Decisiones:** D1–D5 resueltas (ver sección Decisiones pendientes). No queda ninguna bloqueante para la implementación.
 
 **Review Focus:** cada línea tiene un test en su tarea (Review Focus 1 y 2 en T0.3 y T0.4; 3 y 5 en T0.4; 4 en T0.3). Ninguna tarea se queda sin test en su línea de Review Focus.
 
