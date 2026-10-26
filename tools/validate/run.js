@@ -46,7 +46,7 @@ function validateRepo(root, taxonomy) {
   return { errors, warnings };
 }
 
-module.exports = { validateRepo };
+module.exports = { validateRepo, findSkillDirs };
 
 if (require.main === module) {
   const root = path.join(__dirname, '..', '..');
