@@ -1,0 +1,931 @@
+{
+  "schemaVersion": "2.0.0",
+  "generatedAt": "2026-10-26T16:58:21.681Z",
+  "skills": [
+    {
+      "id": "common-accessibility",
+      "version": "1.0.0",
+      "kind": "common",
+      "category": "ux",
+      "technology": null,
+      "applies_to": [
+        "domain:frontend",
+        "domain:mobile"
+      ],
+      "tags": [
+        "a11y",
+        "wcag",
+        "accessibility"
+      ],
+      "requires": [],
+      "status": "stable",
+      "path": "skills/common/common-accessibility",
+      "checksum": "sha256:ee98e2e9b3cb1bc0a39e45e723a2257bb43c9f914e7fc0458086814f75c4e5ae",
+      "description": "Implement web accessibility (a11y) best practices following WCAG guidelines to create inclusive, accessible user interfaces. Use when building or reviewing user interfaces."
+    },
+    {
+      "id": "common-mcp-builder",
+      "version": "1.0.0",
+      "kind": "common",
+      "category": "build",
+      "technology": null,
+      "applies_to": [
+        "*"
+      ],
+      "tags": [
+        "mcp"
+      ],
+      "requires": [],
+      "status": "stable",
+      "path": "skills/common/common-mcp-builder",
+      "checksum": "sha256:e008dbc51357b0b427c9dd78ca404b591103d952b775e2f931ab4d84abc5f94b",
+      "description": "Guide for creating high-quality MCP (Model Context Protocol) servers that enable LLMs to interact with external services through well-designed tools. Use when building MCP servers to integrate external APIs or services, whether in Python (FastMCP) or Node/TypeScript (MCP SDK)."
+    },
+    {
+      "id": "common-typescript-expert",
+      "version": "1.0.0",
+      "kind": "common",
+      "category": "build",
+      "technology": null,
+      "applies_to": [
+        "domain:frontend",
+        "domain:backend"
+      ],
+      "tags": [
+        "typescript"
+      ],
+      "requires": [],
+      "status": "stable",
+      "path": "skills/common/common-typescript-expert",
+      "checksum": "sha256:357171cefda94621e824c5f229e328f8758de7513aa3ca4b7649125d5524ccfc",
+      "description": "TypeScript and JavaScript expert with deep knowledge of type-level programming, performance optimization, monorepo management, migration strategies, and modern tooling. Use when writing or reviewing TypeScript or JavaScript."
+    },
+    {
+      "id": "common-ui-ux-pro-max",
+      "version": "1.0.0",
+      "kind": "common",
+      "category": "ux",
+      "technology": null,
+      "applies_to": [
+        "domain:frontend",
+        "domain:mobile"
+      ],
+      "tags": [
+        "ui",
+        "ux",
+        "design"
+      ],
+      "requires": [],
+      "status": "stable",
+      "path": "skills/common/common-ui-ux-pro-max",
+      "checksum": "sha256:1772bf6da8271273e1478f5e232492fa6626e52700363c2bece7e726ad05b98b",
+      "description": "UI/UX design intelligence for web and mobile. Includes 50+ styles, 161 color palettes, 57 font pairings, 161 product types, 99 UX guidelines, and 25 chart types across 10 stacks (React, Next.js, Vue, Svelte, SwiftUI, React Native, Flutter, Tailwind, shadcn/ui, and HTML/CSS). Actions: plan, build, create, design, implement, review, fix, improve, optimize, enhance, refactor, and check UI/UX code. Projects: website, landing page, dashboard, admin panel, e-commerce, SaaS, portfolio, blog, and mobile app. Elements: button, modal, navbar, sidebar, card, table, form, and chart. Styles: glassmorphism, claymorphism, minimalism, brutalism, neumorphism, bento grid, dark mode, responsive, skeuomorphism, and flat design. Topics: color systems, accessibility, animation, layout, typography, font pairing, spacing, interaction states, shadow, and gradient. Integrations: shadcn/ui MCP for component search and examples. Use when designing or reviewing UI/UX for web and mobile."
+    },
+    {
+      "id": "angular-developer",
+      "version": "1.0.0",
+      "kind": "tech",
+      "category": "build",
+      "technology": "angular",
+      "applies_to": [
+        "angular"
+      ],
+      "tags": [
+        "angular",
+        "frontend"
+      ],
+      "requires": [],
+      "status": "stable",
+      "path": "skills/tech/angular/angular-developer",
+      "checksum": "sha256:28039bda87b11c206a8b7e48cb4963a942033adb20c114b007f0078808e04128",
+      "description": "Generates Angular code and provides architectural guidance. Trigger when creating projects, components, or services, or for best practices on reactivity (signals, linkedSignal, resource), forms, dependency injection, routing, SSR, accessibility (ARIA), animations, styling (component styles, Tailwind CSS), testing, or CLI tooling."
+    },
+    {
+      "id": "nodejs-best-practices",
+      "version": "1.0.0",
+      "kind": "tech",
+      "category": "build",
+      "technology": "nodejs",
+      "applies_to": [
+        "nodejs"
+      ],
+      "tags": [
+        "nodejs",
+        "backend",
+        "security"
+      ],
+      "requires": [],
+      "status": "stable",
+      "path": "skills/tech/nodejs/nodejs-best-practices",
+      "checksum": "sha256:a2e36bb47ba342a233fa88794a52cd46773b5743dfbb3f3bf23be07cf741ddd5",
+      "description": "Node.js development principles and decision-making. Framework selection, async patterns, security, and architecture. Teaches thinking, not copying. Use when designing or reviewing Node.js backends."
+    },
+    {
+      "id": "react-best-practices",
+      "version": "1.0.0",
+      "kind": "tech",
+      "category": "build",
+      "technology": "react",
+      "applies_to": [
+        "react"
+      ],
+      "tags": [
+        "react",
+        "performance",
+        "frontend"
+      ],
+      "requires": [],
+      "status": "stable",
+      "path": "skills/tech/react/react-best-practices",
+      "checksum": "sha256:4e9a8d98eae29bf0e05d238954b23762936f92062369c353abcd10a852864c48",
+      "description": "React and Next.js performance optimization guidelines from Vercel Engineering. This skill should be used when writing, reviewing, or refactoring React/Next.js code to ensure optimal performance patterns. Triggers on tasks involving React components, Next.js pages, data fetching, bundle optimization, or performance improvements."
+    },
+    {
+      "id": "vue-best-practices",
+      "version": "1.0.0",
+      "kind": "tech",
+      "category": "build",
+      "technology": "vue",
+      "applies_to": [
+        "vue"
+      ],
+      "tags": [
+        "vue",
+        "frontend",
+        "typescript"
+      ],
+      "requires": [],
+      "status": "stable",
+      "path": "skills/tech/vue/vue-best-practices",
+      "checksum": "sha256:b275e3d29966fb54f005ef4bd8e27d2735ee9d606ceee99d85479a2c09734950",
+      "description": "MUST be used for Vue.js tasks. Strongly recommends Composition API with `<script setup>` and TypeScript as the standard approach. Covers Vue 3, SSR, Volar, vue-tsc. Load for any Vue, .vue files, Vue Router, Pinia, or Vite with Vue work. ALWAYS use Composition API unless the project explicitly requires Options API. Use when working with Vue.js code."
+    }
+  ],
+  "agents": [
+    {
+      "name": "accesibilidad",
+      "version": "1.0.0",
+      "description": "Revisor de cumplimiento WCAG 2.1 (niveles A y AA) en interfaces frontend, generando correcciones accionables con trazabilidad a estándares.",
+      "model": "claude-sonnet-4-6",
+      "hierarchy": {
+        "level": 2,
+        "role": "ux-accessibility"
+      },
+      "skills": [
+        "common-accessibility"
+      ],
+      "tools": [
+        "web_search",
+        "read_files",
+        "code_analysis"
+      ],
+      "inputs": [
+        "Código frontend (HTML, CSS, JS/TS, Angular templates)",
+        "Capturas o descripciones de UI",
+        "Resultados de herramientas automáticas (axe, Lighthouse, pa11y)"
+      ],
+      "checks": [
+        "ARIA y roles semánticos",
+        "Estructura semántica del documento",
+        "Navegación por teclado",
+        "Contraste y color",
+        "Imágenes y medios",
+        "Tests de accesibilidad"
+      ],
+      "outputs": [
+        "Hallazgos priorizados (critical/serious/moderate/minor)",
+        "Criterios WCAG 2.1 incumplidos",
+        "Snippets de corrección",
+        "Cobertura y requisitos de tests CI/CD"
+      ],
+      "tags": [
+        "accesibilidad",
+        "wcag",
+        "qa",
+        "testing",
+        "compliance"
+      ],
+      "maintainer": "@amutarbo",
+      "path": "agents/accesibilidad",
+      "hasReadme": true
+    },
+    {
+      "name": "backend-architect",
+      "version": "1.0.0",
+      "description": "Arquitecto backend principal especializado en sistemas distribuidos, diseño de APIs y plataformas de datos a escala. Traduce requisitos de negocio en diseños de sistema robustos y evolucionables usando DDD y arquitectura orientada a eventos. No escribe código de implementación — produce blueprints que guían a los backend engineers. Opera en el nivel L3 del swarm SDD.",
+      "model": "claude-opus-4-8",
+      "tools": [
+        "read_files",
+        "web_search",
+        "code_analysis",
+        "agent_delegation",
+        "task_management",
+        "mcp_sdd_memory"
+      ],
+      "inputs": [
+        "Requisitos funcionales y no-funcionales (latencia, throughput, SLA)",
+        "Handoff del product-strategy-analyst",
+        "Stack tecnológico y restricciones de equipo",
+        "Bounded contexts y dominios de negocio",
+        "Requisitos de seguridad y compliance"
+      ],
+      "outputs": [
+        "C4 Container Diagram (Mermaid o PlantUML)",
+        "Service catalog (responsabilidad, tech stack, SLO)",
+        "Data model (ERD o event schema definitions)",
+        "API contracts (OpenAPI snippet o gRPC Protobuf skeleton)",
+        "ADR log (uno por decisión mayor)",
+        "Risk register",
+        "Documento en .claude/doc/{feature_name}/backend-architecture.md"
+      ],
+      "hierarchy": {
+        "level": 3,
+        "role": "architects",
+        "reads_from": [
+          "product-strategy-analyst"
+        ],
+        "handoff_to": [
+          "backend-engineer"
+        ]
+      },
+      "skills": [
+        "nodejs-best-practices",
+        "typescript-expert",
+        "sdd-enrich"
+      ],
+      "tags": [
+        "backend",
+        "architecture",
+        "api-design",
+        "distributed-systems",
+        "ddd",
+        "microservices",
+        "typescript",
+        "swarm-l3",
+        "sdd"
+      ],
+      "maintainer": "@amutarbo",
+      "path": "agents/backend-architect",
+      "hasReadme": true
+    },
+    {
+      "name": "backend-engineer",
+      "version": "1.0.0",
+      "description": "Desarrollador backend senior especializado en TypeScript con arquitectura DDD por capas (Domain, Application, Infrastructure, Presentation). Implementa entidades de dominio, servicios de aplicación, repositorios Prisma y controladores Express siguiendo el blueprint del backend-architect. Produce planes de implementación detallados antes de escribir código. Opera en el nivel L4 del swarm SDD.",
+      "model": "claude-sonnet-4-6",
+      "tools": [
+        "vscode",
+        "execute_code",
+        "read_files",
+        "edit_files",
+        "web_search",
+        "agent_delegation",
+        "task_management",
+        "mcp_sdd_memory"
+      ],
+      "inputs": [
+        "Blueprint de arquitectura backend (.claude/doc/{feature}/backend-architecture.md)",
+        "API contracts (OpenAPI / AsyncAPI)",
+        "Handoff del backend-architect",
+        "CLAUDE.md y .cursorrules del proyecto"
+      ],
+      "outputs": [
+        "Plan de implementación detallado (.claude/doc/{feature}/backend.md)",
+        "Entidades de dominio TypeScript (constructores, save(), factory methods)",
+        "Servicios de aplicación con validación",
+        "Repositorios Prisma en capa de dominio",
+        "Controladores Express y rutas RESTful",
+        "Tests Jest (90% coverage, AAA pattern)",
+        "Actualizaciones de schema Prisma si aplica"
+      ],
+      "hierarchy": {
+        "level": 4,
+        "role": "engineers",
+        "reads_from": [
+          "backend-architect"
+        ],
+        "handoff_to": [
+          "qa-developer"
+        ]
+      },
+      "skills": [
+        "nodejs-best-practices",
+        "typescript-expert",
+        "sdd-run"
+      ],
+      "tags": [
+        "backend",
+        "typescript",
+        "ddd",
+        "nodejs",
+        "prisma",
+        "express",
+        "implementation",
+        "testing",
+        "swarm-l4",
+        "sdd"
+      ],
+      "maintainer": "@amutarbo",
+      "path": "agents/backend-engineer",
+      "hasReadme": true
+    },
+    {
+      "name": "devops-architect",
+      "version": "1.0.0",
+      "description": "Arquitecto DevOps y plataforma cloud-native especializado en infraestructura, SRE y developer platforms. Define blueprints de infraestructura y estándares operacionales aplicando el Well-Architected Framework. No escribe IaC ni pipelines directamente — diseña las topologías y contratos que los devops engineers implementarán. Opera en el nivel L3 del swarm SDD.",
+      "model": "claude-opus-4-8",
+      "tools": [
+        "read_files",
+        "web_search",
+        "code_analysis",
+        "agent_delegation",
+        "task_management",
+        "mcp_sdd_memory"
+      ],
+      "inputs": [
+        "Características de la carga de trabajo (tráfico, estado, latencia)",
+        "Objetivos de fiabilidad (SLA, RTO, RPO)",
+        "Requisitos de seguridad y compliance (SOC2, GDPR, HIPAA)",
+        "Topología del equipo y modelo on-call",
+        "Restricciones presupuestarias y compromisos cloud existentes"
+      ],
+      "outputs": [
+        {
+          "Deployment architecture diagram (C4 Level 3": "deployment view)"
+        },
+        "Technology decision matrix (cloud, IaC, orquestación, observabilidad, CI/CD)",
+        "Network topology (VPC/subnet design, security group model)",
+        "Observability stack definition (toolchain, SLO targets, alerting model)",
+        "Security control matrix (IAM, secrets, network, supply chain, compliance)",
+        "Cost estimate con recomendaciones de optimización",
+        "ADR log (uno por decisión mayor)",
+        "Documento en .claude/doc/{feature_name}/devops-architecture.md"
+      ],
+      "hierarchy": {
+        "level": 3,
+        "role": "architects",
+        "reads_from": [
+          "product-strategy-analyst",
+          "backend-architect"
+        ],
+        "handoff_to": [
+          "devops-engineer"
+        ]
+      },
+      "skills": [
+        "typescript-expert",
+        "sdd-enrich"
+      ],
+      "tags": [
+        "devops",
+        "infrastructure",
+        "cloud",
+        "kubernetes",
+        "observability",
+        "sre",
+        "finops",
+        "security",
+        "swarm-l3",
+        "sdd"
+      ],
+      "maintainer": "@amutarbo",
+      "path": "agents/devops-architect",
+      "hasReadme": true
+    },
+    {
+      "name": "devops-engineer",
+      "version": "1.0.0",
+      "description": "Ingeniero DevOps senior especializado en infraestructura cloud-native, orquestación de contenedores y automatización CI/CD. Implementa el blueprint definido por el devops-architect en configuración real y production-ready. Escribe IaC (Terraform, Helm, manifests Kubernetes), pipelines (GitHub Actions, GitLab CI) y runbooks. Opera en el nivel L4 del swarm SDD.",
+      "model": "claude-sonnet-4-6",
+      "tools": [
+        "execute_code",
+        "read_files",
+        "edit_files",
+        "web_search",
+        "agent_delegation",
+        "task_management",
+        "mcp_sdd_memory"
+      ],
+      "inputs": [
+        "Blueprint de arquitectura DevOps (.claude/doc/{feature}/devops-architecture.md)",
+        "Service requirements y SLO targets",
+        "Environment specs (dev, staging, production)",
+        "Handoff del devops-architect"
+      ],
+      "outputs": [
+        "GitHub Actions / GitLab CI workflows",
+        "Dockerfiles (multi-stage, distroless, non-root)",
+        "Kubernetes manifests y Helm charts",
+        "Terraform modules (variables.tf, outputs.tf, main.tf, versions.tf)",
+        "External Secrets Operator configuración",
+        "Prometheus ServiceMonitor / PrometheusRule",
+        "Runbooks para cada alerta",
+        "Documento en .claude/doc/{feature_name}/devops.md"
+      ],
+      "hierarchy": {
+        "level": 4,
+        "role": "engineers",
+        "reads_from": [
+          "devops-architect",
+          "backend-architect"
+        ],
+        "handoff_to": [
+          "qa-developer"
+        ]
+      },
+      "skills": [
+        "typescript-expert",
+        "sdd-run"
+      ],
+      "tags": [
+        "devops",
+        "kubernetes",
+        "terraform",
+        "ci-cd",
+        "infrastructure",
+        "docker",
+        "helm",
+        "observability",
+        "implementation",
+        "swarm-l4",
+        "sdd"
+      ],
+      "maintainer": "@amutarbo",
+      "path": "agents/devops-engineer",
+      "hasReadme": true
+    },
+    {
+      "name": "frontend-architect",
+      "version": "1.0.0",
+      "description": "Arquitecto frontend principal con experiencia en aplicaciones web a gran escala, design systems y plataformas frontend. Define blueprints arquitectónicos y estándares técnicos que los frontend engineers implementarán. No escribe código de componentes — diseña la estructura y los contratos. Opera en el nivel L3 del swarm SDD.",
+      "model": "claude-opus-4-8",
+      "tools": [
+        "read_files",
+        "web_search",
+        "code_analysis",
+        "agent_delegation",
+        "task_management",
+        "mcp_sdd_memory"
+      ],
+      "inputs": [
+        "Requisitos funcionales y no-funcionales",
+        "Handoff del product-strategy-analyst y ux-ui-designer",
+        "Stack tecnológico y restricciones existentes",
+        "Topología del equipo (número de equipos, ownership)",
+        "Performance budgets y targets de accesibilidad"
+      ],
+      "outputs": [
+        {
+          "Architecture diagram (Mermaid": "composición de módulos)"
+        },
+        "Technology decision matrix con rationale",
+        "Design system contract (token taxonomy, governance)",
+        "Performance budget table por ruta y tipo de asset",
+        "Testing strategy (pirámide de testing)",
+        "ADR log (uno por decisión mayor)",
+        "Risk register",
+        "Documento en .claude/doc/{feature_name}/frontend-architecture.md"
+      ],
+      "hierarchy": {
+        "level": 3,
+        "role": "architects",
+        "reads_from": [
+          "product-strategy-analyst",
+          "ux-ui-designer"
+        ],
+        "handoff_to": [
+          "frontend-engineer"
+        ]
+      },
+      "skills": [
+        "vercel-react-best-practices",
+        "typescript-expert",
+        "sdd-enrich"
+      ],
+      "tags": [
+        "frontend",
+        "architecture",
+        "design-system",
+        "performance",
+        "accessibility",
+        "micro-frontends",
+        "typescript",
+        "swarm-l3",
+        "sdd"
+      ],
+      "maintainer": "@amutarbo",
+      "path": "agents/frontend-architect",
+      "hasReadme": true
+    },
+    {
+      "name": "frontend-engineer",
+      "version": "1.0.0",
+      "description": "Desarrollador frontend senior especializado en React 18+, Vue 3+ y Angular 15+ con TypeScript strict. Implementa interfaces de usuario performantes, accesibles y mantenibles siguiendo el blueprint del frontend-architect. Escribe código real con cobertura de tests >85%. Opera en el nivel L4 del swarm SDD.",
+      "model": "claude-sonnet-4-6",
+      "tools": [
+        "vscode",
+        "execute_code",
+        "read_files",
+        "edit_files",
+        "web_search",
+        "agent_delegation",
+        "task_management",
+        "mcp_sdd_memory"
+      ],
+      "inputs": [
+        "Blueprint de arquitectura frontend (.claude/doc/{feature}/frontend-architecture.md)",
+        "Specs de diseño del ux-ui-designer",
+        "API contracts del backend-architect",
+        "Handoff del frontend-architect"
+      ],
+      "outputs": [
+        "Componentes TypeScript con interfaces tipadas",
+        "Tests (>85% coverage) con Testing Library / Vitest",
+        "Storybook stories con interaction tests",
+        "Performance metrics report",
+        "Accessibility audit results",
+        "Bundle analysis output",
+        "Documentación de componente API"
+      ],
+      "hierarchy": {
+        "level": 4,
+        "role": "engineers",
+        "reads_from": [
+          "frontend-architect",
+          "ux-ui-designer"
+        ],
+        "handoff_to": [
+          "qa-developer",
+          "qa-ux"
+        ]
+      },
+      "skills": [
+        "vercel-react-best-practices",
+        "vue-best-practices",
+        "angular-developer",
+        "typescript-expert",
+        "ui-ux-pro-max",
+        "sdd-run"
+      ],
+      "tags": [
+        "frontend",
+        "react",
+        "vue",
+        "angular",
+        "typescript",
+        "implementation",
+        "testing",
+        "accessibility",
+        "swarm-l4",
+        "sdd"
+      ],
+      "maintainer": "@amutarbo",
+      "path": "agents/frontend-engineer",
+      "hasReadme": true
+    },
+    {
+      "name": "product-strategy-analyst",
+      "version": "1.0.0",
+      "description": "Analista de estrategia de producto especializado en ideación, análisis de mercado y diseño de propuestas de valor. Transforma ideas en conceptos de producto estructurados con dirección estratégica clara. Opera en el nivel L1 del swarm SDD como punto de partida de todo flujo de desarrollo.",
+      "model": "claude-opus-4-8",
+      "tools": [
+        "web_search",
+        "read_files",
+        "agent_delegation",
+        "task_management",
+        "mcp_sdd_memory"
+      ],
+      "inputs": [
+        "Ideas de producto (descripción libre o estructurada)",
+        "Contexto de negocio y restricciones",
+        "Research de usuarios o mercado existente",
+        "Requisitos de alto nivel del stakeholder"
+      ],
+      "outputs": [
+        "Análisis estratégico (SWOT, Blue Ocean, Jobs-to-be-Done)",
+        "Mapa de casos de uso con escenarios priorizados",
+        "Personas de usuario con segmentos de mercado",
+        "Propuesta de valor estructurada",
+        "Enfoque de MVP con hipótesis a validar",
+        "Documento en docs/agent_outputs/market-research-analyst/"
+      ],
+      "hierarchy": {
+        "level": 1,
+        "role": "strategy",
+        "handoff_to": [
+          "ux-ui-designer",
+          "frontend-architect",
+          "backend-architect",
+          "devops-architect"
+        ]
+      },
+      "skills": [
+        "sdd-propose",
+        "sdd-enrich"
+      ],
+      "tags": [
+        "strategy",
+        "product",
+        "ideation",
+        "market-analysis",
+        "swarm-l1",
+        "sdd"
+      ],
+      "maintainer": "@amutarbo",
+      "path": "agents/product-strategy-analyst",
+      "hasReadme": true
+    },
+    {
+      "name": "qa-developer",
+      "version": "1.0.0",
+      "description": "Ingeniero QA senior con mentalidad adversarial hacia la calidad del software. Asume que el código está roto hasta que se prueba lo contrario. Especializado en identificar defectos, validar paths críticos y garantizar que nada llega a producción sin estar probado. Diseña estrategias de testing comprehensivas con análisis de edge cases, concurrencia y manejo de errores. Opera en el nivel L5 del swarm SDD.",
+      "model": "claude-sonnet-4-6",
+      "tools": [
+        "vscode",
+        "execute_code",
+        "read_files",
+        "edit_files",
+        "web_search",
+        "agent_delegation",
+        "task_management",
+        "mcp_sdd_memory"
+      ],
+      "inputs": [
+        "Código del feature implementado",
+        "Specs y tickets de requisitos",
+        "Handoff del engineer (frontend, backend o devops)",
+        "Test standards del proyecto"
+      ],
+      "outputs": [
+        "Test plan por categoría (happy path, boundary, negative, error, concurrency, security)",
+        "Tests automatizados (unit + integration) con nombres descriptivos",
+        "Bug reports con pasos de reproducción, severidad y evidencia",
+        "QA coverage report",
+        "Handoff de resultado al engineer correspondiente"
+      ],
+      "hierarchy": {
+        "level": 5,
+        "role": "qa",
+        "reads_from": [
+          "frontend-engineer",
+          "backend-engineer",
+          "devops-engineer"
+        ],
+        "handoff_to": [
+          "frontend-engineer",
+          "backend-engineer"
+        ]
+      },
+      "skills": [
+        "typescript-expert",
+        "sdd-done"
+      ],
+      "tags": [
+        "qa",
+        "testing",
+        "automation",
+        "bugs",
+        "quality",
+        "edge-cases",
+        "security-testing",
+        "swarm-l5",
+        "sdd"
+      ],
+      "maintainer": "@amutarbo",
+      "path": "agents/qa-developer",
+      "hasReadme": true
+    },
+    {
+      "name": "qa-ux",
+      "version": "1.0.0",
+      "description": "Ingeniero QA senior especializado en calidad UX. Combina metodología QA rigurosa con sensibilidad UX, validando que las implementaciones coincidan con el diseño, que los user journeys sean fluidos y que cada estado de interacción esté correctamente manejado. Produce planes de test UX con formato GIVEN/WHEN/THEN. Opera en el nivel L5 del swarm SDD.",
+      "model": "claude-sonnet-4-6",
+      "tools": [
+        "vscode",
+        "read_files",
+        "web_search",
+        "agent_delegation",
+        "task_management",
+        "mcp_sdd_memory"
+      ],
+      "inputs": [
+        "Design specs del ux-ui-designer (.claude/doc/{feature}/ux-design.md)",
+        "User journey maps",
+        "UI implementada (capturas o acceso al entorno)",
+        "Handoff del frontend-engineer"
+      ],
+      "outputs": [
+        "UX test plan (.claude/doc/{feature_name}/ux-test-plan.md)",
+        "Test cases por escenario (ID, Scenario, Steps, Expected, Actual, Status)",
+        "Design fidelity checklist por componente",
+        "Compatibility matrix (Browser × Device)",
+        "Risk areas priorizadas",
+        "Bug reports UX (blocking / degrading / cosmetic)"
+      ],
+      "hierarchy": {
+        "level": 5,
+        "role": "qa",
+        "reads_from": [
+          "frontend-engineer",
+          "ux-ui-designer"
+        ],
+        "handoff_to": [
+          "frontend-engineer"
+        ]
+      },
+      "skills": [
+        "accessibility-a11y",
+        "ui-ux-pro-max",
+        "sdd-done"
+      ],
+      "tags": [
+        "qa",
+        "ux",
+        "ui-testing",
+        "accessibility",
+        "usability",
+        "cross-browser",
+        "design-fidelity",
+        "swarm-l5",
+        "sdd"
+      ],
+      "maintainer": "@amutarbo",
+      "path": "agents/qa-ux",
+      "hasReadme": true
+    },
+    {
+      "name": "ux-ui-designer",
+      "version": "1.0.0",
+      "description": "Diseñador UX/UI senior especializado en diseño centrado en el usuario, arquitectura de información e interacción. Traduce requisitos de producto en especificaciones de diseño implementables. Opera en el nivel L2 del swarm SDD, recibiendo el handoff estratégico y produciendo blueprints para el frontend-architect.",
+      "model": "claude-opus-4-8",
+      "tools": [
+        "read_files",
+        "edit_files",
+        "web_search",
+        "agent_delegation",
+        "task_management",
+        "mcp_sdd_memory"
+      ],
+      "inputs": [
+        "Requisitos de producto (propuesta del L1 strategy)",
+        "User research y personas de usuario",
+        "Design system tokens existentes",
+        "Restricciones de accesibilidad (WCAG 2.1 AA mínimo)",
+        "Capturas o descripciones de UI existente"
+      ],
+      "outputs": [
+        "User journey maps con happy path y error paths",
+        "Screen specs por pantalla (componentes, jerarquía, layout)",
+        "Tabla de estados de interacción por componente",
+        "Design tokens referenciados o propuestos",
+        "Open questions para revisión de producto",
+        "Documento en .claude/doc/{feature_name}/ux-design.md"
+      ],
+      "hierarchy": {
+        "level": 2,
+        "role": "ux-accessibility",
+        "reads_from": [
+          "product-strategy-analyst"
+        ],
+        "handoff_to": [
+          "frontend-architect"
+        ]
+      },
+      "skills": [
+        "ui-ux-pro-max",
+        "sdd-propose",
+        "sdd-enrich"
+      ],
+      "tags": [
+        "ux",
+        "ui",
+        "design",
+        "interaction-design",
+        "information-architecture",
+        "accessibility",
+        "swarm-l2",
+        "sdd"
+      ],
+      "maintainer": "@amutarbo",
+      "path": "agents/ux-ui-designer",
+      "hasReadme": true
+    }
+  ],
+  "mcps": [
+    {
+      "name": "jira-onprem-mcp",
+      "version": "1.0.0",
+      "description": "Servidor MCP para Jira on-premise con autenticacion por cookies",
+      "url": "https://github.com/amutarbo-cap/capgemini-ai-config/tree/main/mcps/mcp-jira-onprem-main",
+      "auth": {
+        "type": "api_key"
+      },
+      "tags": [
+        "jira",
+        "onprem",
+        "mcp",
+        "local"
+      ],
+      "maintainer": "@amutarbo",
+      "path": "mcps/mcp-jira-onprem-main",
+      "hasReadme": true
+    }
+  ],
+  "profiles": [],
+  "scenarios": [],
+  "aliases": {
+    "accessibility-a11y": "common-accessibility",
+    "vercel-react-best-practices": "react-best-practices",
+    "typescript-expert": "common-typescript-expert",
+    "mcp-builder": "common-mcp-builder",
+    "ui-ux-pro-max": "common-ui-ux-pro-max"
+  },
+  "index": {
+    "byTag": {
+      "a11y": [
+        "common-accessibility"
+      ],
+      "wcag": [
+        "common-accessibility"
+      ],
+      "accessibility": [
+        "common-accessibility"
+      ],
+      "mcp": [
+        "common-mcp-builder"
+      ],
+      "typescript": [
+        "common-typescript-expert",
+        "vue-best-practices"
+      ],
+      "ui": [
+        "common-ui-ux-pro-max"
+      ],
+      "ux": [
+        "common-ui-ux-pro-max"
+      ],
+      "design": [
+        "common-ui-ux-pro-max"
+      ],
+      "angular": [
+        "angular-developer"
+      ],
+      "frontend": [
+        "angular-developer",
+        "react-best-practices",
+        "vue-best-practices"
+      ],
+      "nodejs": [
+        "nodejs-best-practices"
+      ],
+      "backend": [
+        "nodejs-best-practices"
+      ],
+      "security": [
+        "nodejs-best-practices"
+      ],
+      "react": [
+        "react-best-practices"
+      ],
+      "performance": [
+        "react-best-practices"
+      ],
+      "vue": [
+        "vue-best-practices"
+      ]
+    },
+    "byTechnology": {
+      "angular": [
+        "angular-developer"
+      ],
+      "nodejs": [
+        "nodejs-best-practices"
+      ],
+      "react": [
+        "react-best-practices"
+      ],
+      "vue": [
+        "vue-best-practices"
+      ]
+    },
+    "byDomain": {
+      "frontend": [
+        "common-accessibility",
+        "common-typescript-expert",
+        "common-ui-ux-pro-max",
+        "angular-developer",
+        "react-best-practices",
+        "vue-best-practices"
+      ],
+      "mobile": [
+        "common-accessibility",
+        "common-ui-ux-pro-max"
+      ],
+      "backend": [
+        "common-typescript-expert",
+        "nodejs-best-practices"
+      ]
+    },
+    "migrations": {}
+  }
+}
