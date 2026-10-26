@@ -2,48 +2,31 @@ const fs = require('fs');
 const path = require('path');
 
 const yaml = require('js-yaml');
+const { parseFrontmatter } = require('../../tools/lib/frontmatter');
+const { findSkillDirs } = require('../../tools/validate/run');
 
 const CATEGORIES = ['agents', 'skills', 'mcps', 'resources'];
 const ROOT = path.join(__dirname, '..', '..');
 
-function parseFrontmatter(content) {
-  const normalized = content.replace(/\r\n/g, '\n');
-  const match = normalized.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
-  if (!match) return { data: {}, body: content };
-  return {
-    data: yaml.load(match[1]) || {},
-    body: match[2],
-  };
-}
-
+// Recorre skills/ en cualquier profundidad (common/, tech/<tech>/...) y mantiene la forma v1.
 function readSkillFiles() {
-  const categoryPath = path.join(ROOT, 'skills');
-  if (!fs.existsSync(categoryPath)) return [];
-
-  return fs.readdirSync(categoryPath)
-    .filter(dir => {
-      if (dir.startsWith('.')) return false;
-      return fs.statSync(path.join(categoryPath, dir)).isDirectory();
-    })
-    .map(dir => {
-      const dirPath = path.join(categoryPath, dir);
+  return findSkillDirs(ROOT, 'skills')
+    .map(rel => {
+      const dirPath = path.join(ROOT, rel);
       const files = fs.readdirSync(dirPath);
 
-      const skillFile = files.find(f => f === 'SKILL.md');
-      if (!skillFile) return null;
-
       try {
-        const fileContent = fs.readFileSync(path.join(dirPath, skillFile), 'utf8');
-        const { data, body } = parseFrontmatter(fileContent);
+        const fileContent = fs.readFileSync(path.join(dirPath, 'SKILL.md'), 'utf8');
+        const { data, body } = parseFrontmatter(fileContent, `${rel}/SKILL.md`);
         return {
           ...data,
           content: body.trim(),
           rawContent: fileContent,
-          path: `skills/${dir}`,
+          path: rel,
           hasReadme: files.includes('README.md'),
         };
       } catch (e) {
-        console.warn(`Warning: no se pudo parsear skills/${dir}/SKILL.md:`, e.message);
+        console.warn(`Warning: no se pudo parsear ${rel}/SKILL.md:`, e.message);
         return null;
       }
     })

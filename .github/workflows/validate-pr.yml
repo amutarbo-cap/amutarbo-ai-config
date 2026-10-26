@@ -26,3 +26,15 @@ jobs:
 
       - name: Validate YAML files
         run: node .github/scripts/validate-yamls.js
+
+      - name: Install root dependencies
+        run: npm ci
+
+      - name: Run tests
+        run: npm test
+
+      - name: Validate skills
+        run: node tools/validate/run.js
+
+      - name: Validate agent skill references
+        run: node tools/validate/references.js

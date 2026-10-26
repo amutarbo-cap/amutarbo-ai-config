@@ -1,0 +1,22 @@
+# Tecnología → dominio. Añadir una tecnología nueva = una entrada aquí.
+technologies:
+  - id: angular
+    domain: frontend
+  - id: react
+    domain: frontend
+  - id: vue
+    domain: frontend
+  - id: nodejs
+    domain: backend
+  - id: spring-boot
+    domain: backend
+  - id: ios
+    domain: mobile
+  - id: android
+    domain: mobile
+  - id: servicenow
+    domain: low-code
+  - id: pega
+    domain: low-code
+  - id: salesforce
+    domain: low-code

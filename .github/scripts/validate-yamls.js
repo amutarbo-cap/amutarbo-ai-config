@@ -2,9 +2,9 @@ const fs = require('fs');
 const path = require('path');
 const yaml = require('js-yaml');
 
+// Las skills no usan YAML propio: las valida tools/validate/run.js sobre SKILL.md.
 const REQUIRED_FIELDS = {
   agents:    ['name', 'version', 'description', 'model', 'maintainer'],
-  skills:    ['name', 'version', 'description', 'maintainer'],
   mcps:      ['name', 'version', 'description', 'url', 'maintainer'],
   resources: ['name', 'version', 'description', 'maintainer'],
 };

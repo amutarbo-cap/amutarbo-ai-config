@@ -18,7 +18,7 @@ Opera como **L5 del swarm SDD** — valida el trabajo de los engineers antes de 
 
 Se instala automáticamente al ejecutar `/sdd-swarm` y seleccionar el nivel L5 — QA > QA Developer.
 
-Instala los skills `qa-test-planner` y `typescript-expert`.
+Instala el skill `typescript-expert`.
 
 ## Ejemplo de uso
 

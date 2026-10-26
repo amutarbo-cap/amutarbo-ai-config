@@ -1,9 +1,0 @@
-# Plantilla de skill — copiar a skills/NOMBRE-SKILL/skill.yaml
-name: nombre-skill
-version: 1.0.0
-description: Qué hace esta skill
-input: Descripción del input que espera
-output: Descripción del output que genera
-tags:
-  - categoria
-maintainer: "@tu-usuario"

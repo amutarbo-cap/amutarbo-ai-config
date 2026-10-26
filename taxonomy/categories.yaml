@@ -1,0 +1,11 @@
+# Dominio funcional de una skill (campo `category`).
+categories:
+  - quality
+  - security
+  - architecture
+  - documentation
+  - delivery
+  - ux
+  - data
+  - migration
+  - build

@@ -18,7 +18,7 @@ Opera como **L4 del swarm SDD** — implementa el blueprint del backend-architec
 
 Se instala automáticamente al ejecutar `/sdd-swarm` y seleccionar el nivel L4 — Engineers > Backend Engineer.
 
-Instala los skills: `nodejs-best-practices`, `typescript-expert`, `openspec-apply-change`.
+Instala los skills: `nodejs-best-practices` y `typescript-expert`.
 
 ## Ejemplo de uso
 

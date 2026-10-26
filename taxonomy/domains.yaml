@@ -1,0 +1,6 @@
+# Dominios de tecnología. Una tecnología pertenece a exactamente uno.
+domains:
+  - frontend
+  - backend
+  - mobile
+  - low-code

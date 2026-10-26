@@ -18,7 +18,7 @@ Opera como **L5 del swarm SDD** — trabaja en paralelo con el QA Developer enfo
 
 Se instala automáticamente al ejecutar `/sdd-swarm` y seleccionar el nivel L5 — QA > QA UX Tester.
 
-Instala los skills `qa-test-planner`, `accessibility-a11y` y `ui-ux-pro-max`.
+Instala los skills `accessibility-a11y` y `ui-ux-pro-max`.
 
 ## Ejemplo de uso
 

@@ -16,11 +16,9 @@ Una sola fuente de verdad. Los repos consumidores sincronizan cambios mediante G
 │   │   ├── accesibilidad.yaml
 │   │   └── README.md
 │   └── .example/              # Plantilla de referencia
-├── skills/                    # Skills y extensiones
-│   └── .example/
-│       ├── skill.yaml
-│       ├── prompt.md
-│       └── README.md
+├── skills/                    # Skills por tipo y tecnología
+│   ├── common/                # Skills transversales
+│   └── tech/                  # Skills por tecnología
 ├── mcps/                      # Integraciones MCP
 │   └── .example/
 │       ├── mcp.yaml
@@ -64,18 +62,7 @@ Una sola fuente de verdad. Los repos consumidores sincronizan cambios mediante G
 
 ## Crear una nueva skill
 
-1. Copia la plantilla:
-   ```bash
-   cp -r skills/.example skills/mi-skill
-   ```
-
-2. Edita `mi-skill/skill.yaml` (nombre, descripción, input/output, tags)
-
-3. Edita `mi-skill/prompt.md` con el prompt del sistema completo
-
-4. Edita `mi-skill/README.md` (igual estructura que agentes)
-
-5. Commitea
+Las skills se generan con el generador de skills de Claude y se colocan en `skills/common/` (transversal) o en `skills/tech/<tecnología>/`. Cada skill necesita `SKILL.md` con frontmatter completo (ver `docs/superpowers/specs/2026-10-26-skills-library-platform-design.md`, §7) y un `README.md`. El validador (`node tools/validate/run.js`) comprueba el resultado.
 
 ## Crear una nueva integración MCP
 
@@ -138,7 +125,7 @@ Los repos que consumen este catálogo pueden sincronizar cambios:
 ## Contribuir
 
 1. Crea una rama: `git checkout -b feat/nuevo-agente`
-2. Sigue la plantilla `.example/` para tu tipo (agente/skill/MCP)
+2. Sigue la plantilla `.example/` para tu tipo (agente/MCP) o el generador de skills (skills)
 3. Asegúrate que el YAML es válido (valida localmente si es posible)
 4. Pushea y abre PR
 5. La validación automática comprobará estructura y esquema

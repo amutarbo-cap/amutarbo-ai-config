@@ -18,7 +18,7 @@ inputs:
   paths:
     description: Comma separated paths to copy from source repository.
     required: false
-    default: catalog/agents,catalog/skills,catalog/sdd,catalog/mcps,manifest.yaml
+    default: agents,skills,mcps,CATALOG.json
   target_root:
     description: Destination root in current repository.
     required: false
