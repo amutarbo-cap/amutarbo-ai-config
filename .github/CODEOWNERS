@@ -1,0 +1,5 @@
+# Propiedad por carpeta. Los owners reales se sustituyen cuando haya equipos (spec §12).
+skills/common/      @amutarbo
+skills/tech/        @amutarbo
+skills/migrations/  @amutarbo
+taxonomy/           @amutarbo
