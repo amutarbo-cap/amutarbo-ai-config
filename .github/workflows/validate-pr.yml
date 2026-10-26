@@ -35,3 +35,6 @@ jobs:
 
       - name: Validate skills
         run: node tools/validate/run.js
+
+      - name: Validate agent skill references
+        run: node tools/validate/references.js

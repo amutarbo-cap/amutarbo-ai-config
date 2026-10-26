@@ -8,7 +8,7 @@ hierarchy:
   role: ux-accessibility
 
 skills:
-  - accessibility-a11y
+  - common-accessibility
 
 tools:
   - web_search          # búsqueda de criterios WCAG actualizados

@@ -1,0 +1,3 @@
+# Prefijos de skills que se referencian desde agentes pero viven fuera de este repo.
+prefixes:
+  - sdd-
