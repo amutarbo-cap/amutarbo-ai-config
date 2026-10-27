@@ -54,13 +54,20 @@ test('skill entries never carry content or rawContent', () => {
 
 test('catalog has the v2 top-level shape', () => {
   const catalog = build(TREE);
-  assert.strictEqual(catalog.schemaVersion, '2.0.0');
+  assert.strictEqual(catalog.schemaVersion, '2.1.0');
   assert.strictEqual(catalog.generatedAt, '2026-10-26T10:00:00.000Z');
+  assert.deepStrictEqual(catalog.releases, []);
   assert.deepStrictEqual(catalog.profiles, []);
   assert.deepStrictEqual(catalog.scenarios, []);
   assert.deepStrictEqual(catalog.aliases, {});
   assert.ok(Array.isArray(catalog.agents));
   assert.ok(Array.isArray(catalog.mcps));
+});
+
+test('includes injected releases', () => {
+  const releases = [{ name: 'x', latest: '1.0.0', versions: [] }];
+  const catalog = buildCatalogV2(TREE, { now: new Date('2026-10-26T10:00:00Z'), taxonomy, warn: () => {}, releases });
+  assert.deepStrictEqual(catalog.releases, releases);
 });
 
 test('index maps technology and tags to ids', () => {

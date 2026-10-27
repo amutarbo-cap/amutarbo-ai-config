@@ -98,6 +98,46 @@ Hallazgos relevantes:
 
 ---
 
+## IA-Portal: releases de BrainForge Companion
+
+El catálogo incluye una sección aditiva `releases` (en `CATALOG.json` v1 y en `CATALOG.v2.json`, esta con `schemaVersion` `2.1.0`). La raíz de v1 no cambia (`version: "1.0.0"`). El repo origen no aparece en el catálogo: es configuración privada del portal.
+
+```json
+"releases": [
+  {
+    "name": "brainforge-companion",
+    "latest": "0.2.8",
+    "versions": [
+      {
+        "version": "0.2.8",
+        "tag": "v0.2.8",
+        "publishedAt": "2026-10-26T08:46:34Z",
+        "asset": {
+          "name": "brainforge-companion-0.2.8.vsix",
+          "size": 771527,
+          "sha256": "a0e410aa3b4249b55d8887e34c6523f5f77ede51e270f158c95b9b29b106e695",
+          "assetId": 677555191
+        }
+      }
+    ]
+  }
+]
+```
+
+### Cambios requeridos
+
+1. Declarar `releases` en `CatalogSchema` (`hub-sync/dto/catalog.dto.ts`) y leerlo del catálogo v1 (`HUB_CATALOG_URL` sigue apuntando a `CATALOG.json`).
+2. Mostrar versión, fecha y tamaño, con el botón de descarga de `latest`.
+3. Exponer un endpoint autenticado `GET /downloads/brainforge-companion/:version` que:
+   - comprueba la sesión del usuario;
+   - busca la versión en el catálogo y responde 404 si no está;
+   - llama a `GET /repos/<owner>/<repo>/releases/assets/{assetId}` con `Accept: application/octet-stream` y el token propio de solo lectura del portal (el repo origen es configuración del portal);
+   - reenvía el archivo con `Content-Disposition: attachment; filename="<asset.name>"`;
+   - opcionalmente verifica el `sha256` del catálogo antes de entregarlo.
+4. No exponer nunca el token al navegador.
+
+---
+
 ## Orden recomendado
 
 1. Mergear el PR #2 en `capgemini-ai-config` (la CI debe pasar).

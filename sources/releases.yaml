@@ -1,0 +1,5 @@
+sources:
+  - name: brainforge-companion
+    repo: dmuleroa/dcx-brain-forge
+    asset_pattern: "*.vsix"
+    max_releases: 10

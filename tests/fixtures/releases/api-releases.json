@@ -1,0 +1,107 @@
+[
+  {
+    "tag_name": "v0.2.7",
+    "name": "v0.2.7",
+    "draft": false,
+    "prerelease": false,
+    "published_at": "2026-10-23T12:45:52Z",
+    "body": "Notas internas de v0.2.7: cambios privados del producto.",
+    "assets": [
+      {
+        "id": 1002,
+        "name": "brainforge-companion-0.2.7.vsix",
+        "size": 770000,
+        "digest": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+      }
+    ]
+  },
+  {
+    "tag_name": "v0.2.8",
+    "name": "v0.2.8",
+    "draft": false,
+    "prerelease": false,
+    "published_at": "2026-10-26T08:46:34Z",
+    "body": "Notas internas de v0.2.8: cambios privados del producto.",
+    "assets": [
+      {
+        "id": 677555187,
+        "name": "brainforge-0.2.8-py3-none-any.whl",
+        "size": 609461
+      },
+      {
+        "id": 677555191,
+        "name": "brainforge-companion-0.2.8.vsix",
+        "size": 771527,
+        "digest": "sha256:a0e410aa3b4249b55d8887e34c6523f5f77ede51e270f158c95b9b29b106e695"
+      },
+      {
+        "id": 677555189,
+        "name": "SHA256SUMS",
+        "size": 198
+      }
+    ]
+  },
+  {
+    "tag_name": "v0.3.0",
+    "name": "v0.3.0",
+    "draft": true,
+    "prerelease": false,
+    "published_at": null,
+    "body": "Notas internas de v0.3.0: cambios privados del producto.",
+    "assets": [
+      {
+        "id": 1030,
+        "name": "brainforge-companion-0.3.0.vsix",
+        "size": 780000,
+        "digest": "sha256:dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
+      }
+    ]
+  },
+  {
+    "tag_name": "v0.3.0-rc.1",
+    "name": "v0.3.0-rc.1",
+    "draft": false,
+    "prerelease": true,
+    "published_at": "2026-10-26T09:00:00Z",
+    "body": "Notas internas de v0.3.0-rc.1: cambios privados del producto.",
+    "assets": [
+      {
+        "id": 1031,
+        "name": "brainforge-companion-0.3.0-rc.1.vsix",
+        "size": 779000,
+        "digest": "sha256:eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
+      }
+    ]
+  },
+  {
+    "tag_name": "v0.2.6",
+    "name": "v0.2.6",
+    "draft": false,
+    "prerelease": false,
+    "published_at": "2026-10-23T12:16:21Z",
+    "body": "Notas internas de v0.2.6: cambios privados del producto.",
+    "assets": [
+      {
+        "id": 1006,
+        "name": "brainforge-0.2.6-py3-none-any.whl",
+        "size": 600000
+      }
+    ]
+  },
+  {
+    "tag_name": "0.2.5",
+    "name": "0.2.5",
+    "draft": false,
+    "prerelease": false,
+    "published_at": "2026-10-23T10:45:42Z",
+    "body": "Notas internas de 0.2.5: cambios privados del producto.",
+    "assets": [
+      {
+        "id": 1005,
+        "name": "brainforge-companion-0.2.5.vsix",
+        "size": 760000,
+        "digest": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+      }
+    ]
+  }
+]

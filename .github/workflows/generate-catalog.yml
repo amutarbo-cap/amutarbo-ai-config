@@ -7,6 +7,12 @@ on:
   pull_request:
     branches:
       - main
+  schedule:
+    - cron: '*/30 * * * *'
+
+concurrency:
+  group: "generate-catalog-${{ github.ref }}"
+  cancel-in-progress: false
 
 jobs:
   generate-catalog:
@@ -28,9 +34,13 @@ jobs:
 
       - name: Generate CATALOG.json
         run: node .github/scripts/generate-catalog.js
+        env:
+          BRAINFORGE_TOKEN: ${{ secrets.BRAINFORGE_TOKEN }}
 
       - name: Generate CATALOG.v2.json
         run: node tools/catalog/build-v2.js
+        env:
+          BRAINFORGE_TOKEN: ${{ secrets.BRAINFORGE_TOKEN }}
 
       - name: Commit catalogs if changed
         run: |
@@ -39,6 +49,6 @@ jobs:
           git add CATALOG.json CATALOG.v2.json
           git diff --staged --quiet || git commit -m "chore: regenerate CATALOG.json [skip ci]"
           git push
-        if: github.event_name == 'push'
+        if: github.event_name != 'pull_request'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
