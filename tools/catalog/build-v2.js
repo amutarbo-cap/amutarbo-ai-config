@@ -5,6 +5,8 @@ const yaml = require('js-yaml');
 const { parseFrontmatter } = require('../lib/frontmatter');
 const { loadTaxonomy } = require('../lib/taxonomy');
 const { findSkillDirs } = require('../validate/run');
+const { readPreviousReleases, resolveReleases } = require('./releases');
+const { writeCatalogIfChanged } = require('../lib/write-catalog');
 
 const LIST_FIELDS = ['applies_to', 'tags', 'requires'];
 
@@ -106,9 +108,10 @@ function buildCatalogV2(root, options = {}) {
   }
 
   return {
-    schemaVersion: '2.0.0',
+    schemaVersion: '2.1.0',
     generatedAt: now.toISOString(),
     skills,
+    releases: options.releases ?? [],
     agents: readYamlDirs(root, 'agents'),
     mcps: readYamlDirs(root, 'mcps'),
     profiles: [],
@@ -121,8 +124,16 @@ function buildCatalogV2(root, options = {}) {
 module.exports = { buildCatalogV2, skillChecksum };
 
 if (require.main === module) {
-  const root = path.join(__dirname, '..', '..');
-  const catalog = buildCatalogV2(root);
-  fs.writeFileSync(path.join(root, 'CATALOG.v2.json'), JSON.stringify(catalog, null, 2));
-  console.log(`CATALOG.v2.json generado: ${catalog.skills.length} skills, ${catalog.agents.length} agents, ${catalog.mcps.length} mcps`);
+  (async () => {
+    const root = path.join(__dirname, '..', '..');
+    const file = path.join(root, 'CATALOG.v2.json');
+    const previous = readPreviousReleases(file);
+    const releases = await resolveReleases(root, { previous, token: process.env.BRAINFORGE_TOKEN });
+    const catalog = buildCatalogV2(root, { releases });
+    writeCatalogIfChanged(file, catalog);
+    console.log(`CATALOG.v2.json generado: ${catalog.skills.length} skills, ${catalog.agents.length} agents, ${catalog.mcps.length} mcps, ${catalog.releases.length} releases`);
+  })().catch(err => {
+    console.error(err);
+    process.exit(1);
+  });
 }
