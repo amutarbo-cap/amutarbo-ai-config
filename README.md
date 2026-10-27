@@ -24,10 +24,32 @@ Una sola fuente de verdad. Los repos consumidores sincronizan cambios mediante G
 │       ├── mcp.yaml
 │       └── README.md
 ├── resources/                 # Recursos compartidos
+├── sources/                   # Fuentes externas de releases
 ├── .github/workflows/         # CI/CD para validación
 ├── CATALOG.json               # Índice generado automáticamente
 └── README.md
 ```
+
+## Releases externas
+
+Algunas herramientas se publican como releases de otro repositorio. `sources/releases.yaml` declara de dónde leerlas:
+
+```yaml
+sources:
+  - name: brainforge-companion
+    repo: <owner>/<repo>
+    asset_pattern: "*.vsix"
+    max_releases: 10
+```
+
+- `name`: identificador en el catálogo.
+- `repo`: repositorio origen de las releases.
+- `asset_pattern`: patrón del asset a incluir (las releases sin asset que lo cumpla se omiten).
+- `max_releases`: número máximo de versiones, de más reciente a más antigua.
+
+La GitHub Action regenera los catálogos cada 30 minutos (cron) y añade la sección `releases` a `CATALOG.json` y `CATALOG.v2.json`, con versión, fecha, nombre, tamaño, `sha256` y `assetId` del asset. Solo hace commit si hay cambios reales.
+
+Requiere el secreto de Actions `BRAINFORGE_TOKEN`: un PAT fine-grained con únicamente `Contents: read` sobre el repo origen. El nombre del repo origen no se publica en los catálogos.
 
 ## Crear un nuevo agente
 
