@@ -51,6 +51,10 @@ La GitHub Action regenera los catálogos cada 30 minutos (cron) y añade la secc
 
 Requiere el secreto de Actions `BRAINFORGE_TOKEN`: un PAT fine-grained con únicamente `Contents: read` sobre el repo origen. El nombre del repo origen no se publica en los catálogos.
 
+- GitHub desactiva los workflows programados de repos públicos tras 60 días sin actividad en el repo; si las releases dejan de refrescarse, reactivar el workflow desde la pestaña Actions o hacer cualquier commit.
+- `generatedAt` refleja el último cambio real de contenido del catálogo, no la última ejecución.
+- `asset_pattern` distingue mayúsculas de minúsculas.
+
 ## Crear un nuevo agente
 
 1. Copia la plantilla `.example/`:

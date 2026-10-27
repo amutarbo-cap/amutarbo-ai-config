@@ -37,7 +37,7 @@ function toCatalogEntries(apiReleases, source, options = {}) {
       asset: {
         name: asset.name,
         size: asset.size,
-        sha256: String(asset.digest || '').replace(/^sha256:/, ''),
+        sha256: asset.digest ? String(asset.digest).replace(/^sha256:/, '') : null,
         assetId: asset.id,
       },
     });
@@ -55,8 +55,11 @@ async function fetchReleases(repo, options = {}) {
     'User-Agent': 'capgemini-ai-config-catalog',
   };
   if (options.token) headers.Authorization = `Bearer ${options.token}`;
-  const res = await doFetch(`https://api.github.com/repos/${repo}/releases?per_page=100`, { headers });
-  if (!res.ok) throw new Error(`GitHub API ${res.status} para ${repo}`);
+  const res = await doFetch(`https://api.github.com/repos/${repo}/releases?per_page=100`, {
+    headers,
+    signal: AbortSignal.timeout(15000),
+  });
+  if (!res.ok) throw new Error(`GitHub API ${res.status}`);
   return res.json();
 }
 

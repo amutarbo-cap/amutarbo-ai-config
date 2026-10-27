@@ -27,6 +27,16 @@ test('maps the v0.2.8 release to a catalog version', () => {
   });
 });
 
+test('gives sha256 null when the asset has no digest', () => {
+  const releases = JSON.parse(JSON.stringify(FIXTURE));
+  const rel = releases.find(r => !r.draft && !r.prerelease && r.tag_name === 'v0.2.8');
+  rel.assets.forEach(a => { delete a.digest; });
+  const out = toCatalogEntries(releases, SOURCE, { warn: () => {} });
+  const v = out.versions.find(x => x.tag === 'v0.2.8');
+  assert.ok(v);
+  assert.strictEqual(v.asset.sha256, null);
+});
+
 test('skips drafts and prereleases so latest is the newest stable', () => {
   const entry = convert();
   assert.strictEqual(entry.latest, '0.2.8');
@@ -100,6 +110,28 @@ test('fetchReleases calls the releases endpoint with auth', async () => {
 test('fetchReleases rejects on a non-ok response', async () => {
   const f = async () => ({ ok: false, status: 404 });
   await assert.rejects(fetchReleases('a/b', { token: 't', fetch: f }), /404/);
+});
+
+test('fetchReleases error does not leak the repo', async () => {
+  const f = async () => ({ ok: false, status: 404 });
+  await assert.rejects(
+    fetchReleases(SOURCE.repo, { token: 't', fetch: f }),
+    err => err.message.includes('404') && !err.message.includes(SOURCE.repo)
+  );
+});
+
+test('fetchReleases passes an AbortSignal timeout', async () => {
+  const calls = [];
+  await fetchReleases('a/b', { token: 't', fetch: okFetch([], calls) });
+  assert.ok(calls[0].init.signal instanceof AbortSignal);
+});
+
+test('resolveReleases warning names the source but not the repo', async () => {
+  const warnings = [];
+  const f = async () => ({ ok: false, status: 404 });
+  await resolveReleases(makeRoot(), { previous: PREVIOUS, token: 'tok', fetch: f, warn: m => warnings.push(m) });
+  assert.ok(warnings.some(w => w.includes(SOURCE.name) && w.includes('404')));
+  assert.ok(warnings.every(w => !w.includes(SOURCE.repo)));
 });
 
 test('resolveReleases returns converted entries on success', async () => {

@@ -13,7 +13,7 @@
 ## Global Constraints
 
 - Rama de trabajo: `amutarbo-cap/Descargar-vsix` (ya rebasada sobre `origin/main`). No hacer push ni tocar `main`.
-- `git` no tiene identidad configurada: commitear con `git -c user.name="amutarbo" -c user.email="amut.denia@gmail.com" commit ...`, sin modificar la configuración.
+- `git` no tiene identidad configurada: commitear con `git -c user.name="<nombre>" -c user.email="<email>" commit ...`, sin modificar la configuración.
 - Cada mensaje de commit termina con la línea `Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>`.
 - `CATALOG.json` y `CATALOG.v2.json` no se editan ni se commitean a mano: se generan solo para verificar y se restauran con `git checkout -- CATALOG.json CATALOG.v2.json`.
 - El nombre del repo origen (`dmuleroa/dcx-brain-forge`) y las notas de la release **nunca** aparecen en ningún catálogo.

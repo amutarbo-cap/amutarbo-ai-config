@@ -131,7 +131,7 @@ El catálogo incluye una sección aditiva `releases` (en `CATALOG.json` v1 y en 
 3. Exponer un endpoint autenticado `GET /downloads/brainforge-companion/:version` que:
    - comprueba la sesión del usuario;
    - busca la versión en el catálogo y responde 404 si no está;
-   - llama a `GET /repos/dmuleroa/dcx-brain-forge/releases/assets/{assetId}` con `Accept: application/octet-stream` y el token propio de solo lectura del portal (el repo origen es configuración del portal);
+   - llama a `GET /repos/<owner>/<repo>/releases/assets/{assetId}` con `Accept: application/octet-stream` y el token propio de solo lectura del portal (el repo origen es configuración del portal);
    - reenvía el archivo con `Content-Disposition: attachment; filename="<asset.name>"`;
    - opcionalmente verifica el `sha256` del catálogo antes de entregarlo.
 4. No exponer nunca el token al navegador.
