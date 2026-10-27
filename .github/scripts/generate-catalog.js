@@ -4,6 +4,8 @@ const path = require('path');
 const yaml = require('js-yaml');
 const { parseFrontmatter } = require('../../tools/lib/frontmatter');
 const { findSkillDirs } = require('../../tools/validate/run');
+const { readPreviousReleases, resolveReleases } = require('../../tools/catalog/releases');
+const { writeCatalogIfChanged } = require('../../tools/lib/write-catalog');
 
 const CATEGORIES = ['agents', 'skills', 'mcps', 'resources'];
 const ROOT = path.join(__dirname, '..', '..');
@@ -66,21 +68,30 @@ function readYamlFiles(category) {
     .filter(Boolean);
 }
 
-const catalog = {
-  version: '1.0.0',
-  generatedAt: new Date().toISOString(),
-  agents: readYamlFiles('agents'),
-  skills: readSkillFiles(),
-  mcps: readYamlFiles('mcps'),
-  resources: readYamlFiles('resources'),
-};
+async function main() {
+  const file = path.join(ROOT, 'CATALOG.json');
+  const previous = readPreviousReleases(file);
+  const releases = await resolveReleases(ROOT, { previous, token: process.env.BRAINFORGE_TOKEN });
 
-fs.writeFileSync(
-  path.join(ROOT, 'CATALOG.json'),
-  JSON.stringify(catalog, null, 2)
-);
+  const catalog = {
+    version: '1.0.0',
+    generatedAt: new Date().toISOString(),
+    agents: readYamlFiles('agents'),
+    skills: readSkillFiles(),
+    mcps: readYamlFiles('mcps'),
+    resources: readYamlFiles('resources'),
+    releases,
+  };
 
-console.log(`CATALOG.json generado:`);
-Object.entries(catalog).forEach(([key, val]) => {
-  if (Array.isArray(val)) console.log(`  ${key}: ${val.length} items`);
+  writeCatalogIfChanged(file, catalog);
+
+  console.log(`CATALOG.json generado:`);
+  Object.entries(catalog).forEach(([key, val]) => {
+    if (Array.isArray(val)) console.log(`  ${key}: ${val.length} items`);
+  });
+}
+
+main().catch(err => {
+  console.error(err);
+  process.exit(1);
 });
