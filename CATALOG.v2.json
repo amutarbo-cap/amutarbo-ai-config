@@ -1,6 +1,6 @@
 {
   "schemaVersion": "2.1.0",
-  "generatedAt": "2026-11-15T00:54:13.922Z",
+  "generatedAt": "2026-11-15T15:30:10.852Z",
   "skills": [
     {
       "id": "common-accessibility",
@@ -164,8 +164,19 @@
   "releases": [
     {
       "name": "brainforge-companion",
-      "latest": "0.3.0",
+      "latest": "0.3.1",
       "versions": [
+        {
+          "version": "0.3.1",
+          "tag": "v0.3.1",
+          "publishedAt": "2026-11-15T09:23:40Z",
+          "asset": {
+            "name": "brainforge-companion-0.3.1.vsix",
+            "size": 995633,
+            "sha256": "672489fcbf0d5a44b8616ef2000348509778180dcc7c6a01fd44f85a15255a32",
+            "assetId": 750472376
+          }
+        },
         {
           "version": "0.3.0",
           "tag": "v0.3.0",
@@ -263,17 +274,6 @@
             "size": 766678,
             "sha256": "48e57020bfe4f010249d0a4fbcfd981c65aa7b05d5e6e9eacdc788a0ca6ba43f",
             "assetId": 669029952
-          }
-        },
-        {
-          "version": "0.2.5",
-          "tag": "v0.2.5",
-          "publishedAt": "2026-10-23T10:45:42Z",
-          "asset": {
-            "name": "brainforge-companion-0.2.5.vsix",
-            "size": 763009,
-            "sha256": "15ca8ca8ae35220790ad9b7b1abd31b6c5d3b9cfb385f5c1e58418a116ad4454",
-            "assetId": 668816360
           }
         }
       ]
