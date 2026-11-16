@@ -1,6 +1,6 @@
 {
   "schemaVersion": "2.1.0",
-  "generatedAt": "2026-11-16T07:46:59.402Z",
+  "generatedAt": "2026-11-16T18:11:35.052Z",
   "skills": [
     {
       "id": "common-accessibility",
@@ -164,8 +164,30 @@
   "releases": [
     {
       "name": "brainforge-companion",
-      "latest": "0.3.2",
+      "latest": "0.3.4",
       "versions": [
+        {
+          "version": "0.3.4",
+          "tag": "v0.3.4",
+          "publishedAt": "2026-11-16T15:49:06Z",
+          "asset": {
+            "name": "brainforge-companion-0.3.4.vsix",
+            "size": 1011427,
+            "sha256": "6c394e7dfba35b3055154e6de77ff762ba8bf9afc02d5eb681850593766de3b7",
+            "assetId": 755432993
+          }
+        },
+        {
+          "version": "0.3.3",
+          "tag": "v0.3.3",
+          "publishedAt": "2026-11-16T12:49:18Z",
+          "asset": {
+            "name": "brainforge-companion-0.3.3.vsix",
+            "size": 1006397,
+            "sha256": "a7e5fef01b576276507a1cad6acb696bb49435a8863fa23f448fd291add0c9b5",
+            "assetId": 754837347
+          }
+        },
         {
           "version": "0.3.2",
           "tag": "v0.3.2",
@@ -252,28 +274,6 @@
             "size": 784596,
             "sha256": "de5acf97b80253ce5ef697c7ed82a33d0c949ab47e76e52bd647110625e0e1d6",
             "assetId": 679576598
-          }
-        },
-        {
-          "version": "0.2.8",
-          "tag": "v0.2.8",
-          "publishedAt": "2026-10-26T08:46:34Z",
-          "asset": {
-            "name": "brainforge-companion-0.2.8.vsix",
-            "size": 771527,
-            "sha256": "a0e410aa3b4249b55d8887e34c6523f5f77ede51e270f158c95b9b29b106e695",
-            "assetId": 677555191
-          }
-        },
-        {
-          "version": "0.2.7",
-          "tag": "v0.2.7",
-          "publishedAt": "2026-10-23T12:45:52Z",
-          "asset": {
-            "name": "brainforge-companion-0.2.7.vsix",
-            "size": 767016,
-            "sha256": "afe5c1be5e4424beaa617832c8c8acac032ce4b03b70316e5721a450a01c39f8",
-            "assetId": 669102964
           }
         }
       ]
