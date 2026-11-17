@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generatedAt": "2026-11-17T01:58:37.890Z",
+  "generatedAt": "2026-11-17T10:32:33.224Z",
   "agents": [
     {
       "name": "accesibilidad",
@@ -877,8 +877,30 @@
   "releases": [
     {
       "name": "brainforge-companion",
-      "latest": "0.3.5",
+      "latest": "0.3.7",
       "versions": [
+        {
+          "version": "0.3.7",
+          "tag": "v0.3.7",
+          "publishedAt": "2026-11-17T08:52:36Z",
+          "asset": {
+            "name": "brainforge-companion-0.3.7.vsix",
+            "size": 1047724,
+            "sha256": "a576a130b7af9316ba2dfe3fa431e993c101e9b4ac23da40ed17d99400c48ee0",
+            "assetId": 758317155
+          }
+        },
+        {
+          "version": "0.3.6",
+          "tag": "v0.3.6",
+          "publishedAt": "2026-11-17T07:08:30Z",
+          "asset": {
+            "name": "brainforge-companion-0.3.6.vsix",
+            "size": 1046766,
+            "sha256": "8a02bebb2962cd87b0b84b8fce995a52e871a38033cf13497d5cf76b2d58a01e",
+            "assetId": 758021608
+          }
+        },
         {
           "version": "0.3.5",
           "tag": "v0.3.5",
@@ -965,28 +987,6 @@
             "size": 945004,
             "sha256": "9f89ea54f9dbb4aadb22200fd9c06fe423e3f819f366ec9e311a0f4ccaddaaf1",
             "assetId": 743574197
-          }
-        },
-        {
-          "version": "0.2.11",
-          "tag": "v0.2.11",
-          "publishedAt": "2026-11-13T10:04:33Z",
-          "asset": {
-            "name": "brainforge-companion-0.2.11.vsix",
-            "size": 944897,
-            "sha256": "0539aec05169e13d38ac7e8b463f3c6f66da52b1ae4b1952abbf150f7c6222e2",
-            "assetId": 743162831
-          }
-        },
-        {
-          "version": "0.2.10",
-          "tag": "v0.2.10",
-          "publishedAt": "2026-10-27T10:11:40Z",
-          "asset": {
-            "name": "brainforge-companion-0.2.10.vsix",
-            "size": 784929,
-            "sha256": "638b534014b249a7e639aa8a47a55c377fb303fc384d9d3268e39e569e724441",
-            "assetId": 681203761
           }
         }
       ]
